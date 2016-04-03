@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Picture-->
         <scene sceneID="QZW-7T-yig">
             <objects>
-                <viewController id="62U-jZ-ku5" sceneMemberID="viewController">
+                <viewController id="62U-jZ-ku5" customClass="PictureViewController" customModule="Places_We_Have_Been" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aRi-yN-5pI"/>
                         <viewControllerLayoutGuide type="bottom" id="V5N-LR-0kx"/>
@@ -16,15 +16,32 @@
                     <view key="view" contentMode="scaleToFill" id="D50-1c-SBs">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jYK-f1-gJ4">
+                                <rect key="frame" x="180" y="68" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.61794871794871797" green="0.61794871794871797" blue="0.61794871794871797" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Lus-tk-fCs"/>
+                                    <constraint firstAttribute="width" constant="240" id="ZnC-xd-VvD"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jYK-f1-gJ4" firstAttribute="centerY" secondItem="D50-1c-SBs" secondAttribute="centerY" constant="-168" id="7AK-JR-7Js"/>
+                            <constraint firstItem="jYK-f1-gJ4" firstAttribute="centerX" secondItem="D50-1c-SBs" secondAttribute="centerX" id="fxX-vA-5Hc"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="bBs-3p-p0w"/>
+                    <tabBarItem key="tabBarItem" title="Picture" id="bBs-3p-p0w"/>
+                    <connections>
+                        <outlet property="imageView" destination="jYK-f1-gJ4" id="Jr5-Bf-LdE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEs-yd-JK9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="236" y="1548"/>
         </scene>
-        <!--Item 1-->
+        <!--Map-->
         <scene sceneID="2OW-FP-cAl">
             <objects>
                 <viewController id="PbI-Bk-Sjc" customClass="ViewController" customModule="Places_We_Have_Been" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +54,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Dce-ZE-Ax9"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="Dce-ZE-Ax9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDi-od-2aP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
