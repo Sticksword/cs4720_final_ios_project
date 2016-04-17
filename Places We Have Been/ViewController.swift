@@ -21,6 +21,17 @@ class ViewController: UIViewController {
         mapView.delegate = self
         
         mapView.camera = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.20, zoom: 6)
+
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if (defaults.objectForKey("titles") == nil) {
+            defaults.setValue([String](), forKey:"titles")
+            defaults.setValue([String](), forKey:"descriptions")
+            defaults.setValue([String](), forKey:"urls")
+            defaults.setValue([String](), forKey:"dateTimes")
+            defaults.setValue([String](), forKey:"locations")
+        }
+        
+
         mapView.myLocationEnabled = true
         
         mapView.settings.compassButton = true

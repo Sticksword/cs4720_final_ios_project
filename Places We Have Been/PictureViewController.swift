@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import CoreLocation
 
 class PictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
    
     var imagePicker:UIImagePickerController!
+    var link: String!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +41,6 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         //Upload to imgur to get a link
         let base64String = UIImageJPEGRepresentation(image, 1.0)!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
         let clientId = "Client-ID f34fe8516f05db6"
-        var link = ""
         
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.imgur.com/3/upload")!)
         request.HTTPMethod = "POST"
@@ -52,9 +56,9 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 do {
                     let myData = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)
-                    link = ((myData["data"] as! NSDictionary)["link"]) as! String
+                    self.link = ((myData["data"] as! NSDictionary)["link"]) as! String
                     
-                    print(link)
+//                    print(self.link)
                 } catch {
                     print("ERROR")
                 }
@@ -65,6 +69,52 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         task.resume()
     }
 
+    @IBAction func submitClicked(sender: AnyObject) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        var currentTitles = defaults.objectForKey("titles") as! [String]
+        var currentDescriptions = defaults.objectForKey("descriptions") as! [String]
+        var currentUrls = defaults.objectForKey("urls") as! [String]
+        var currentDateTimes = defaults.objectForKey("dateTimes") as! [String]
+        var currentLocations = defaults.objectForKey("locations") as! [String]
+        
+        let formatter = NSDateFormatter()
+        formatter.timeStyle = .ShortStyle
+        formatter.dateStyle = .ShortStyle
+        let dateString = formatter.stringFromDate(NSDate())
+        
+        let locManager = CLLocationManager()
+        var latitude: CLLocationDegrees!
+        var longitude: CLLocationDegrees!
+        
+        locManager.requestWhenInUseAuthorization()
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways) {
+            latitude = locManager.location?.coordinate.latitude
+            longitude = locManager.location?.coordinate.longitude
+        } else {
+            latitude = 0
+            longitude = 0
+        }
+        
+        let latLong = "" + String(latitude) + ", " + String(longitude)
+        if (self.link == nil) {
+            self.link = ""
+        }
+        
+        currentTitles.append(self.titleTextField.text!)
+        currentDescriptions.append(self.descriptionTextView.text)
+        currentUrls.append(self.link)
+        currentDateTimes.append(dateString)
+        currentLocations.append(latLong)
+        
+        defaults.setValue(currentTitles, forKey:"titles")
+        defaults.setValue(currentDescriptions, forKey:"descriptions")
+        defaults.setValue(currentUrls, forKey:"urls")
+        defaults.setValue(currentDateTimes, forKey:"dateTimes")
+        defaults.setValue(currentLocations, forKey:"locations")
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

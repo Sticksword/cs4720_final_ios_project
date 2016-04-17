@@ -25,16 +25,74 @@
                                     <constraint firstAttribute="width" constant="240" id="ZnC-xd-VvD"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9f-aX-WGC">
+                                <rect key="frame" x="12" y="236" width="568" height="295"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsv-LB-gzs">
+                                        <rect key="frame" x="8" y="27" width="50" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foU-Dx-vlX">
+                                        <rect key="frame" x="8" y="57" width="93" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="U1c-s3-Aej">
+                                        <rect key="frame" x="103" y="57" width="457" height="189"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KLD-rL-Xyc">
+                                        <rect key="frame" x="103" y="23" width="457" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80X-Pt-tKR">
+                                        <rect key="frame" x="511" y="254" width="49" height="30"/>
+                                        <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="submitClicked:" destination="62U-jZ-ku5" eventType="touchUpInside" id="AXD-PR-XF7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.88686753914633354" green="1" blue="0.78170793962373364" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="80X-Pt-tKR" secondAttribute="trailing" constant="8" id="9DV-Jg-I5R"/>
+                                    <constraint firstItem="U1c-s3-Aej" firstAttribute="leading" secondItem="foU-Dx-vlX" secondAttribute="trailing" constant="2" id="Avb-Zk-ctr"/>
+                                    <constraint firstAttribute="trailing" secondItem="U1c-s3-Aej" secondAttribute="trailing" constant="8" id="DJs-Ae-36Y"/>
+                                    <constraint firstItem="KLD-rL-Xyc" firstAttribute="leading" secondItem="lsv-LB-gzs" secondAttribute="trailing" constant="45" id="G3w-zU-tQ7"/>
+                                    <constraint firstItem="foU-Dx-vlX" firstAttribute="top" secondItem="lsv-LB-gzs" secondAttribute="bottom" constant="9" id="GaI-cl-vot"/>
+                                    <constraint firstItem="U1c-s3-Aej" firstAttribute="top" secondItem="KLD-rL-Xyc" secondAttribute="bottom" constant="4" id="KHd-IJ-OIz"/>
+                                    <constraint firstItem="lsv-LB-gzs" firstAttribute="top" secondItem="A9f-aX-WGC" secondAttribute="top" constant="27" id="PJQ-cR-snc"/>
+                                    <constraint firstAttribute="trailing" secondItem="KLD-rL-Xyc" secondAttribute="trailing" constant="8" id="ZDj-Ks-iTq"/>
+                                    <constraint firstItem="lsv-LB-gzs" firstAttribute="leading" secondItem="A9f-aX-WGC" secondAttribute="leading" constant="8" id="aiD-sA-VSr"/>
+                                    <constraint firstItem="80X-Pt-tKR" firstAttribute="top" secondItem="U1c-s3-Aej" secondAttribute="bottom" constant="8" id="auD-D8-jSq"/>
+                                    <constraint firstItem="foU-Dx-vlX" firstAttribute="leading" secondItem="A9f-aX-WGC" secondAttribute="leading" constant="8" id="cGf-Vd-4VH"/>
+                                    <constraint firstAttribute="bottom" secondItem="U1c-s3-Aej" secondAttribute="bottom" constant="49" id="jXC-f8-L9s"/>
+                                    <constraint firstAttribute="bottom" secondItem="80X-Pt-tKR" secondAttribute="bottom" constant="11" id="qLH-bg-g09"/>
+                                    <constraint firstItem="KLD-rL-Xyc" firstAttribute="top" secondItem="A9f-aX-WGC" secondAttribute="top" constant="23" id="vYN-Fe-HaT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jYK-f1-gJ4" firstAttribute="centerY" secondItem="D50-1c-SBs" secondAttribute="centerY" constant="-168" id="7AK-JR-7Js"/>
+                            <constraint firstItem="A9f-aX-WGC" firstAttribute="top" secondItem="jYK-f1-gJ4" secondAttribute="bottom" constant="40" id="J3h-O4-cWM"/>
+                            <constraint firstItem="A9f-aX-WGC" firstAttribute="leading" secondItem="D50-1c-SBs" secondAttribute="leadingMargin" constant="-8" id="KdK-J7-VE6"/>
                             <constraint firstItem="jYK-f1-gJ4" firstAttribute="centerX" secondItem="D50-1c-SBs" secondAttribute="centerX" id="fxX-vA-5Hc"/>
+                            <constraint firstItem="V5N-LR-0kx" firstAttribute="top" secondItem="A9f-aX-WGC" secondAttribute="bottom" constant="20" id="nPK-xQ-tdk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A9f-aX-WGC" secondAttribute="trailing" id="reu-xY-9tr"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Picture" id="bBs-3p-p0w"/>
                     <connections>
+                        <outlet property="descriptionTextView" destination="U1c-s3-Aej" id="WlB-W8-gyM"/>
                         <outlet property="imageView" destination="jYK-f1-gJ4" id="Jr5-Bf-LdE"/>
+                        <outlet property="titleTextField" destination="KLD-rL-Xyc" id="PFq-bp-v84"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEs-yd-JK9" userLabel="First Responder" sceneMemberID="firstResponder"/>
