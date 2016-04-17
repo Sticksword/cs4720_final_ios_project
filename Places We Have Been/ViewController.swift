@@ -11,19 +11,20 @@ import GoogleMaps
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var mapView: GMSMapView!
+    
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let camera = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.20, zoom: 6)
-        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        mapView.delegate = self
+        
+        mapView.camera = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.20, zoom: 6)
         mapView.myLocationEnabled = true
-        // The myLocation attribute of the mapView may be null
-        if let mylocation = mapView.myLocation {
-            print("User's location: \(mylocation)")
-        } else {
-            print("User's location is unknown")
-        }
-        self.view = mapView
+        
+        mapView.settings.compassButton = true
+        mapView.settings.myLocationButton = true
         
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(-33.86, 151.20)
@@ -40,3 +41,25 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: GMSMapViewDelegate {
+    
+    func mapView(mapView: GMSMapView, willMove gesture: Bool) {
+        mapView.clear()
+    }
+    
+    func mapView(mapView: GMSMapView, idleAtCameraPosition cameraPosition: GMSCameraPosition) {
+        let handler = {
+            (response : GMSReverseGeocodeResponse?, error: NSError?) -> Void in guard error == nil else { return }
+            
+            if let result = response?.firstResult() {
+                let marker = GMSMarker()
+                marker.position = cameraPosition.target
+                marker.title = result.lines![0] as String
+                marker.snippet = result.lines![1] as String
+                marker.map = mapView
+            }
+        }
+    }
+    
+    
+}

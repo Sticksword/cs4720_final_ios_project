@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VDs-BU-8W9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VDs-BU-8W9">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Picture-->
@@ -52,9 +52,24 @@
                     <view key="view" contentMode="scaleToFill" id="gm4-9H-egM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0X-Tp-fta" customClass="GMSMapView">
+                                <rect key="frame" x="20" y="20" width="560" height="531"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C0X-Tp-fta" firstAttribute="leading" secondItem="gm4-9H-egM" secondAttribute="leadingMargin" id="0kd-Fc-p5s"/>
+                            <constraint firstItem="QLn-DB-9kz" firstAttribute="top" secondItem="C0X-Tp-fta" secondAttribute="bottom" id="b6E-Sp-p7k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C0X-Tp-fta" secondAttribute="trailing" id="nuI-Fi-lcT"/>
+                            <constraint firstItem="C0X-Tp-fta" firstAttribute="top" secondItem="x7p-D9-wcn" secondAttribute="bottom" id="rKw-dO-qhH"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="Dce-ZE-Ax9"/>
+                    <connections>
+                        <outlet property="mapView" destination="C0X-Tp-fta" id="YG7-7D-g2o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDi-od-2aP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
