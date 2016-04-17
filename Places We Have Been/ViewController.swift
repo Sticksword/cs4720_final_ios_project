@@ -14,6 +14,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if (defaults.objectForKey("titles") == nil) {
+            defaults.setValue([String](), forKey:"titles")
+            defaults.setValue([String](), forKey:"descriptions")
+            defaults.setValue([String](), forKey:"urls")
+            defaults.setValue([String](), forKey:"dateTimes")
+            defaults.setValue([String](), forKey:"locations")
+        }
+        
         let camera = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.20, zoom: 6)
         let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
         mapView.myLocationEnabled = true
