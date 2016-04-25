@@ -31,13 +31,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsv-LB-gzs">
                                         <rect key="frame" x="8" y="27" width="50" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foU-Dx-vlX">
                                         <rect key="frame" x="8" y="57" width="93" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="U1c-s3-Aej">
@@ -112,16 +112,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0X-Tp-fta" customClass="GMSMapView">
-                                <rect key="frame" x="20" y="20" width="560" height="531"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="C0X-Tp-fta" firstAttribute="leading" secondItem="gm4-9H-egM" secondAttribute="leadingMargin" id="0kd-Fc-p5s"/>
-                            <constraint firstItem="QLn-DB-9kz" firstAttribute="top" secondItem="C0X-Tp-fta" secondAttribute="bottom" id="b6E-Sp-p7k"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="C0X-Tp-fta" secondAttribute="trailing" id="nuI-Fi-lcT"/>
-                            <constraint firstItem="C0X-Tp-fta" firstAttribute="top" secondItem="x7p-D9-wcn" secondAttribute="bottom" id="rKw-dO-qhH"/>
+                            <constraint firstItem="C0X-Tp-fta" firstAttribute="leading" secondItem="gm4-9H-egM" secondAttribute="leading" id="7CB-P6-CkB"/>
+                            <constraint firstAttribute="trailing" secondItem="C0X-Tp-fta" secondAttribute="trailing" id="IIt-2E-XGv"/>
+                            <constraint firstItem="QLn-DB-9kz" firstAttribute="top" secondItem="C0X-Tp-fta" secondAttribute="bottom" id="hVk-gt-MjU"/>
+                            <constraint firstItem="C0X-Tp-fta" firstAttribute="top" secondItem="x7p-D9-wcn" secondAttribute="bottom" id="x3F-Wf-MRS"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="Dce-ZE-Ax9"/>

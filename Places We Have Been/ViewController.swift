@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         
         mapView.delegate = self
         
-        mapView.camera = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.20, zoom: 6)
+        mapView.camera = GMSCameraPosition.cameraWithLatitude(38.03, longitude: -78.51, zoom: 6)
 
         let defaults = NSUserDefaults.standardUserDefaults()
         if (defaults.objectForKey("titles") == nil) {
@@ -28,9 +28,8 @@ class ViewController: UIViewController {
             defaults.setValue([String](), forKey:"descriptions")
             defaults.setValue([String](), forKey:"urls")
             defaults.setValue([String](), forKey:"dateTimes")
-            defaults.setValue([String](), forKey:"locations")
+            defaults.setValue([String](), forKey:"locations") // "lat, lon" strings
         }
-        
 
         mapView.myLocationEnabled = true
         
@@ -38,10 +37,35 @@ class ViewController: UIViewController {
         mapView.settings.myLocationButton = true
         
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(-33.86, 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
+        marker.position = CLLocationCoordinate2DMake(38.03, -78.51)
+        marker.title = "UVA"
+        marker.snippet = "wahoowa"
         marker.map = mapView
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        print("calling from viewWillAppear()")
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+
+        var titles = defaults.arrayForKey("titles")!
+        var descriptions = defaults.arrayForKey("descriptions")!
+        var locations = defaults.arrayForKey("locations")!
+        for i in 0..<titles.count {
+            print(titles[i])
+            var marker = GMSMarker()
+            print(locations[i])
+            //var locArr = split(locations[i]) {$0 == ", "}
+            //marker.position = CLLocationCoordinate2DMake(locArr[0], locArr[1])
+        }
+        
+        var marker = GMSMarker()
+        marker.position = CLLocationCoordinate2DMake(35.00, -75.00)
+        marker.title = "TEST"
+        marker.snippet = "TESTING"
+        marker.map = mapView
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +79,11 @@ class ViewController: UIViewController {
 extension ViewController: GMSMapViewDelegate {
     
     func mapView(mapView: GMSMapView, willMove gesture: Bool) {
-        mapView.clear()
+//        mapView.clear()
+    }
+    
+    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+        print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
     }
     
     func mapView(mapView: GMSMapView, idleAtCameraPosition cameraPosition: GMSCameraPosition) {
@@ -69,6 +97,7 @@ extension ViewController: GMSMapViewDelegate {
                 marker.snippet = result.lines![1] as String
                 marker.map = mapView
             }
+            print("test")
         }
     }
     
