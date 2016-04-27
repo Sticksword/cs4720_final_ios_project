@@ -88,7 +88,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         var longitude: CLLocationDegrees!
         
         locManager.requestWhenInUseAuthorization()
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways) {
+        if (!(CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined)) {
             latitude = locManager.location?.coordinate.latitude
             longitude = locManager.location?.coordinate.longitude
         } else {
@@ -113,6 +113,10 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         defaults.setValue(currentDateTimes, forKey:"dateTimes")
         defaults.setValue(currentLocations, forKey:"locations")
         
+        
+        let alert = UIAlertController(title: "Success", message: "Picture successfully saved!", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
