@@ -45,7 +45,6 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        print("calling from viewWillAppear()")
         
         let defaults = NSUserDefaults.standardUserDefaults()
 
@@ -53,9 +52,9 @@ class ViewController: UIViewController {
         var descriptions = defaults.arrayForKey("descriptions")!
         var locations = defaults.arrayForKey("locations")!
         for i in 0..<titles.count {
-            print(titles[i])
+//            print(titles[i])
             var marker = GMSMarker()
-            print(locations[i])
+//            print(locations[i])
             //var locArr = split(locations[i]) {$0 == ", "}
             //marker.position = CLLocationCoordinate2DMake(locArr[0], locArr[1])
         }

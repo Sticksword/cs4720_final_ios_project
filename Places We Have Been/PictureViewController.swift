@@ -14,6 +14,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var submitButton: UIButton!
    
     var imagePicker:UIImagePickerController!
     var link: String!
@@ -35,6 +36,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        self.submitButton.enabled = false
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
         imageView.image = image
         
@@ -57,6 +59,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
                 do {
                     let myData = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)
                     self.link = ((myData["data"] as! NSDictionary)["link"]) as! String
+                    self.submitButton.enabled = true
                     
 //                    print(self.link)
                 } catch {
@@ -88,7 +91,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         var longitude: CLLocationDegrees!
         
         locManager.requestWhenInUseAuthorization()
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways) {
+        if (!(CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined)) {
             latitude = locManager.location?.coordinate.latitude
             longitude = locManager.location?.coordinate.longitude
         } else {
@@ -103,6 +106,7 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         currentTitles.append(self.titleTextField.text!)
         currentDescriptions.append(self.descriptionTextView.text)
+        print(self.link)
         currentUrls.append(self.link)
         currentDateTimes.append(dateString)
         currentLocations.append(latLong)
@@ -113,6 +117,10 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
         defaults.setValue(currentDateTimes, forKey:"dateTimes")
         defaults.setValue(currentLocations, forKey:"locations")
         
+        
+        let alert = UIAlertController(title: "Success", message: "Picture successfully saved!", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
