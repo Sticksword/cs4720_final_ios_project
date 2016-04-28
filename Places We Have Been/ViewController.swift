@@ -68,6 +68,24 @@ class ViewController: UIViewController {
         
     }
 
+//    for referece:
+//    let userNameKeyConstant = "userNameKey"
+//    
+//    @IBAction func writeButton(sender: UIButton)
+//    {
+//        let defaults = NSUserDefaults.standardUserDefaults()
+//        defaults.setObject("Coding Explorer", forKey: userNameKeyConstant)
+//    }
+//    
+//    @IBAction func readButton(sender: UIButton)
+//    {
+//        let defaults = NSUserDefaults.standardUserDefaults()
+//        if let name = defaults.stringForKey(userNameKeyConstant)
+//        {
+//            println(name)
+//        }
+//    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -78,14 +96,17 @@ class ViewController: UIViewController {
 
 extension ViewController: GMSMapViewDelegate {
     
+//    indicates that the camera position is about to change. If the gesture argument is set to YES, this is due to a user performing a natural gesture on the GMSMapView, such as a pan or tilt. Otherwise, NO indicates that this is part of a programmatic change - for example, via methods such as animateToCameraPosition: or updating the map's layer directly. This may also be NO if a user has tapped on the My Location or compass buttons, which generate animations that change the camera.
     func mapView(mapView: GMSMapView, willMove gesture: Bool) {
 //        mapView.clear()
     }
     
+//    is called repeatedly during a gesture or animation, always after a call to mapView:willMove:. It is passed the intermediate camera position.
     func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
         print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
     }
     
+//     is invoked once the camera position on GMSMapView becomes idle, and specifies the relevant camera position. At this point, all animations and gestures have stopped.
     func mapView(mapView: GMSMapView, idleAtCameraPosition cameraPosition: GMSCameraPosition) {
         let handler = {
             (response : GMSReverseGeocodeResponse?, error: NSError?) -> Void in guard error == nil else { return }
