@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  DetailsViewController.swift
 //  Places We Have Been
 //
 //  Created by Jordan Lu on 4/27/16.
@@ -8,5 +8,6 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class DetailsViewController : UIViewController {
+    
 }

@@ -23,8 +23,15 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let dismissGesture = UITapGestureRecognizer(target: self, action: #selector(PictureViewController.dismissKeyboard(_:)))
+        self.view.addGestureRecognizer(dismissGesture)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(PictureViewController.imageTapped(_:)))
         imageView.addGestureRecognizer(tapGesture)
+    }
+    
+    func dismissKeyboard(gesture: UIGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     func imageTapped(gesture: UIGestureRecognizer) {
