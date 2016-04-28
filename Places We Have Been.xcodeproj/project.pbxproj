@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B4C35C217F7BE1C6FCC804D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C104575F88EFFA4DD0660ADF /* libPods.a */; };
+		4C3B04AB1CD1B8DC0039727C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B04AA1CD1B8DC0039727C /* DetailsViewController.swift */; };
+		4C3B04AD1CD2A7690039727C /* CustomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B04AC1CD2A7690039727C /* CustomMarker.swift */; };
 		4C6C00601CAE04B40005EDB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C005F1CAE04B40005EDB2 /* AppDelegate.swift */; };
 		4C6C00621CAE04B40005EDB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C00611CAE04B40005EDB2 /* ViewController.swift */; };
 		4C6C00651CAE04B40005EDB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C6C00631CAE04B40005EDB2 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		484B0A5F88C57ADD30EFDB6B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4C3B04AA1CD1B8DC0039727C /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		4C3B04AC1CD2A7690039727C /* CustomMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMarker.swift; sourceTree = "<group>"; };
 		4C6C005C1CAE04B40005EDB2 /* Places We Have Been.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Places We Have Been.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6C005F1CAE04B40005EDB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C6C00611CAE04B40005EDB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,11 +81,13 @@
 			children = (
 				4C6C005F1CAE04B40005EDB2 /* AppDelegate.swift */,
 				4C6C00611CAE04B40005EDB2 /* ViewController.swift */,
+				4C3B04AA1CD1B8DC0039727C /* DetailsViewController.swift */,
 				D5D42E9A1CB1C24B00F87622 /* PictureViewController.swift */,
 				4C6C00631CAE04B40005EDB2 /* Main.storyboard */,
 				4C6C00661CAE04B40005EDB2 /* Assets.xcassets */,
 				4C6C00681CAE04B40005EDB2 /* LaunchScreen.storyboard */,
 				4C6C006B1CAE04B40005EDB2 /* Info.plist */,
+				4C3B04AC1CD2A7690039727C /* CustomMarker.swift */,
 			);
 			path = "Places We Have Been";
 			sourceTree = "<group>";
@@ -129,7 +135,7 @@
 				TargetAttributes = {
 					4C6C005B1CAE04B40005EDB2 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 575HDY793S;
+						DevelopmentTeam = 84858483SV;
 					};
 				};
 			};
@@ -220,7 +226,9 @@
 			files = (
 				4C6C00621CAE04B40005EDB2 /* ViewController.swift in Sources */,
 				D5D42E9B1CB1C24B00F87622 /* PictureViewController.swift in Sources */,
+				4C3B04AD1CD2A7690039727C /* CustomMarker.swift in Sources */,
 				4C6C00601CAE04B40005EDB2 /* AppDelegate.swift in Sources */,
+				4C3B04AB1CD1B8DC0039727C /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +349,7 @@
 				INFOPLIST_FILE = "Places We Have Been/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Places-We-Have-Been";
+				PRODUCT_BUNDLE_IDENTIFIER = "michael-Places-We-Have-Been";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -357,7 +365,7 @@
 				INFOPLIST_FILE = "Places We Have Been/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Places-We-Have-Been";
+				PRODUCT_BUNDLE_IDENTIFIER = "michael-Places-We-Have-Been";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

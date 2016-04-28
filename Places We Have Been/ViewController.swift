@@ -51,8 +51,10 @@ class ViewController: UIViewController {
         var titles = defaults.arrayForKey("titles")!
         var descriptions = defaults.arrayForKey("descriptions")!
         var locations = defaults.arrayForKey("locations")!
+        var dates = defaults.arrayForKey("dateTimes")!
+        var urls = defaults.arrayForKey("urls")!
         for i in 0..<titles.count {
-            var marker = GMSMarker()
+            let marker = CustomMarker(date: dates[i] as! String)
             var locArr = locations[i].componentsSeparatedByString(", ")
             marker.position = CLLocationCoordinate2DMake(Double(locArr[0])!, Double(locArr[1])!)
             marker.title = titles[i] as? String
@@ -116,14 +118,16 @@ extension ViewController: GMSMapViewDelegate {
     }
     
     func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
-        print(marker.snippet)
-        
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-        var vc : DetailsViewController = storyboard.instantiateViewControllerWithIdentifier("detailsViewController") as! DetailsViewController
+        let vc : DetailsViewController = storyboard.instantiateViewControllerWithIdentifier("detailsViewController") as! DetailsViewController
         
-        //EXAMPLE
-        vc.aTitle = "hello";
+        let m = marker as! CustomMarker
+        vc.pictureTitle = m.title
+//        vc.pictureDescription = marker.description
+        vc.pictureDescription = m.snippet
+        vc.location = m.position
+        vc.date = m.getDate()
         
         self.presentViewController(vc, animated: true, completion: nil)
     }

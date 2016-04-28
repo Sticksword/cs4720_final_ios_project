@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import MapKit
 
 class DetailsViewController : UIViewController {
     
-    var aTitle : String!
+    var pictureTitle : String!
+    var pictureDescription: String!
+    var location: CLLocationCoordinate2D!
+    var date: String!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -20,6 +24,10 @@ class DetailsViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.titleLabel.text = aTitle
+        self.titleLabel.text = pictureTitle
+        self.descriptionLabel.text = pictureDescription
+        self.locationLabel.text = String(location)
+        self.dateTimeLabel.text = date
+
     }
 }
