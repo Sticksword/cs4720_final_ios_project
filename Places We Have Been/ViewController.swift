@@ -52,22 +52,17 @@ class ViewController: UIViewController {
         var descriptions = defaults.arrayForKey("descriptions")!
         var locations = defaults.arrayForKey("locations")!
         for i in 0..<titles.count {
-//            print(titles[i])
             var marker = GMSMarker()
-//            print(locations[i])
-            //var locArr = split(locations[i]) {$0 == ", "}
-            //marker.position = CLLocationCoordinate2DMake(locArr[0], locArr[1])
+            var locArr = locations[i].componentsSeparatedByString(", ")
+            marker.position = CLLocationCoordinate2DMake(Double(locArr[0])!, Double(locArr[1])!)
+            marker.title = titles[i] as! String
+            marker.snippet = descriptions[i] as! String
+            marker.map = mapView
         }
-        
-        var marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(35.00, -75.00)
-        marker.title = "TEST"
-        marker.snippet = "TESTING"
-        marker.map = mapView
         
     }
 
-//    for referece:
+//    REFERENCE:
 //    let userNameKeyConstant = "userNameKey"
 //    
 //    @IBAction func writeButton(sender: UIButton)
@@ -75,7 +70,6 @@ class ViewController: UIViewController {
 //        let defaults = NSUserDefaults.standardUserDefaults()
 //        defaults.setObject("Coding Explorer", forKey: userNameKeyConstant)
 //    }
-//    
 //    @IBAction func readButton(sender: UIButton)
 //    {
 //        let defaults = NSUserDefaults.standardUserDefaults()
@@ -119,6 +113,14 @@ extension ViewController: GMSMapViewDelegate {
             }
             print("test")
         }
+    }
+    
+    func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
+        print(marker.snippet)
+        
+        var controller = DetailsViewController()
+        
+        self.presentViewController(controller, animated: true, completion: nil)
     }
     
     

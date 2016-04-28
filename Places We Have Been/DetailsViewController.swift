@@ -9,5 +9,9 @@
 import UIKit
 
 class DetailsViewController : UIViewController {
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        print("HELLO FROM DETAILS_VIEW_CONTROLLER")
+    }
 }
