@@ -55,8 +55,8 @@ class ViewController: UIViewController {
             var marker = GMSMarker()
             var locArr = locations[i].componentsSeparatedByString(", ")
             marker.position = CLLocationCoordinate2DMake(Double(locArr[0])!, Double(locArr[1])!)
-            marker.title = titles[i] as! String
-            marker.snippet = descriptions[i] as! String
+            marker.title = titles[i] as? String
+            marker.snippet = descriptions[i] as? String
             marker.map = mapView
         }
         
@@ -101,7 +101,7 @@ extension ViewController: GMSMapViewDelegate {
     
 //     is invoked once the camera position on GMSMapView becomes idle, and specifies the relevant camera position. At this point, all animations and gestures have stopped.
     func mapView(mapView: GMSMapView, idleAtCameraPosition cameraPosition: GMSCameraPosition) {
-        let handler = {
+        _ = {
             (response : GMSReverseGeocodeResponse?, error: NSError?) -> Void in guard error == nil else { return }
             
             if let result = response?.firstResult() {
@@ -118,9 +118,14 @@ extension ViewController: GMSMapViewDelegate {
     func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
         print(marker.snippet)
         
-        var controller = DetailsViewController()
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-        self.presentViewController(controller, animated: true, completion: nil)
+        var vc : DetailsViewController = storyboard.instantiateViewControllerWithIdentifier("detailsViewController") as! DetailsViewController
+        
+        //EXAMPLE
+        vc.aTitle = "hello";
+        
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     

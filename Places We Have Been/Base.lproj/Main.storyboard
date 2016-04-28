@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VDs-BU-8W9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VDs-BU-8W9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -147,7 +147,7 @@
         <!--Details View Controller-->
         <scene sceneID="a1v-e3-TMG">
             <objects>
-                <viewController storyboardIdentifier="detailViewController" id="hTb-l8-2mW" customClass="DetailsViewController" customModule="Places_We_Have_Been" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hTb-l8-2mW" customClass="DetailsViewController" customModule="Places_We_Have_Been" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pUk-Nq-7cv"/>
                         <viewControllerLayoutGuide type="bottom" id="TDY-uf-fvp"/>
@@ -265,6 +265,12 @@
                             <constraint firstItem="C6E-NQ-Ban" firstAttribute="leading" secondItem="sLC-0N-sHX" secondAttribute="leadingMargin" constant="-4" id="t4b-jq-7M8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateTimeLabel" destination="N0w-Xv-1Fm" id="UnM-MP-WPn"/>
+                        <outlet property="descriptionLabel" destination="hz7-yy-MVQ" id="7JJ-WX-gsf"/>
+                        <outlet property="locationLabel" destination="Hmx-kv-tvb" id="Qtj-7y-Liz"/>
+                        <outlet property="titleLabel" destination="nq6-bR-ZYH" id="uIh-3h-udm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFf-mT-Zwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
